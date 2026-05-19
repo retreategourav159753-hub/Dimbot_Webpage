@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: url('https://images.pexels.com/photos/33008806/pexels-photo-33008806.jpeg?_gl=1*1a3h8kd*_ga*MTQ4MTU0MTM4LjE3Nzg5MzQ0ODE.*_ga_8JE65Q40S6*czE3Nzg5MzQ0ODAkbzEkZzEkdDE3Nzg5MzQ1MDIkajM4JGwwJGgw');
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    margin:32px;
+    padding:20px;
+    display: flex;
+    height: 80px;
+    background: transparent;border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: #fff;
+    border-radius: 20px;
+}
+ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+
+}
+a{
+    text-decoration:none; 
+    color:white;   
+    position:relative;
+    top:1vh;
+    right:5vh;
+
+  transition: 0.3s; 
+  cursor: pointer;
+}
+a:hover{
+    text-shadow: 
+    0 0 10px #ffffff, 
+    0 0 20px #ffffff, 
+    0 0 40px #ffffff;
+}
+.user_log{
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+.dim_logo{
+    position: relative;
+    left: 1vh;
+    bottom:0.6vh;
+}
+@media screen and (max-width:1117px){
+    a{
+        color:#333333;
+        font-weight:400;
+    }
+}
+@media screen and (max-width:651px){
+    .dim_logo{
+    position: relative;
+    left: 1vh;
+    bottom:0.6vh;
+}
+    a{
+    text-decoration:none; 
+    color:black;   
+    position:relative;
+    top:1vh;
+    right:6vh;
+}
+.user_log{
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+}
+@media screen and (max-width: 631px){
+        .dim_logo{
+    position: relative;
+    left: 1vh;
+    bottom:0.6vh;
+}
+    a{
+    text-decoration:none; 
+    color:black;   
+    position:relative;
+    top:1vh;
+    right:6vh;
+    font-size: 80%;
+}
+.user_log{
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+}
+
+@media screen and (max-width: 565px){
+        .dim_logo{
+    position: relative;
+    left: 1vh;
+    bottom:0.6vh;
+}
+    a{
+    text-decoration:none; 
+    color:black;   
+    position:relative;
+    top:1vh;
+    right:6vh;
+    font-size: 80%;
+}
+.user_log{
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+}
+}
+.welcome{
+    text-align: center;
+    color: #fff;
+}
