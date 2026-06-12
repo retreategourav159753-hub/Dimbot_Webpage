@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="https://i.ibb.co/PGKcsTyZ/dd.png">
+    <link rel="stylesheet" href="design.css">    
+</head>
+<body>
+    <div class="wrapper">
+        <form action="LoginServlet" method="POST">
+            <div class="imgdim">
+                <img src="https://i.ibb.co/PGKcsTyZ/dd.png" alt="" class="user-icon">
+            </div>
+            <h1>Login</h1>
+            <div class="input-box">
+                <input aria-label="user-input" type="text" id="username" name="username" placeholder="Username" maxlength="12" required>
+            </div>
+
+            <div class="input-box">
+                <input aria-label="password-input" type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-box">
+                <input aria-label="mail-input" type="email" id="email" name="email" placeholder="E-mail" required>
+            </div>
+
+            <button type="submit" value="submit" class="btn">Login</button>
+        </form>
+    </div>
+</body>
+</html>
