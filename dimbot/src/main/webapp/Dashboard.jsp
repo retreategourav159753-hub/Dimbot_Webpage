@@ -1,0 +1,340 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ page import="java.util.List" %>
+        <%@ page import="java.util.Map" %>
+            <% List<String> labels =
+                (List<String>) request.getAttribute("labels");
+
+                    List<Integer> values =
+                        (List<Integer>) request.getAttribute("values");
+                            if(labels == null){
+                            labels = new java.util.ArrayList<>();
+                                }
+
+                                if(values == null){
+                                values = new java.util.ArrayList<>();
+                                    }
+                                    %>
+                                    <!DOCTYPE html>
+                                    <html lang="en">
+
+                                    <head>
+                                        <meta charset="UTF-8">
+                                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                        <title>Dimbot</title>
+                                        <link rel="stylesheet"
+                                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                        <link rel="icon" href="https://i.ibb.co/PGKcsTyZ/dd.png">
+                                        <link rel="stylesheet" href="Dashboard.css">
+                                        <script type="text/javascript"
+                                            src="https://www.gstatic.com/charts/loader.js"></script>
+
+                                    </head>
+
+                                    <body>
+                                        <% String userName=null; Cookie[] cookies=request.getCookies(); if (cookies
+                                            !=null){ for(Cookie cookie : cookies){ if(cookie.getName().equals("user")){
+                                            userName=cookie.getValue(); } } } if(userName==null){
+                                            response.sendRedirect(request.getContextPath() + "/Login.jsp" ); } %>
+
+
+                                            <header class="header-main sticky">
+                                                <div class="dim_logo">
+                                                    <img src="https://i.ibb.co/PGKcsTyZ/dd.png" alt="Dimbot Logo"
+                                                        style="width: 30%;">
+                                                </div>
+                                                <nav class="nav_bar">
+                                                    <ul>
+                                                        <li><a href="home.jsp" class="header_links">Home</a></li>
+                                                        <li><a href="Courses.jsp" class="header_links">Courses</a></li>
+                                                        <li><a href="#ContactUs" class="header_links">Contact Us</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+
+                                                <div class="search_bar">
+                                                    <input type="search" placeholder="Search what you want to learn..."
+                                                        class="search_input">
+                                                    <button type="submit" class="search_icon"><i
+                                                            class="fa fa-search"></i></button>
+                                                </div>
+
+                                                <div class="user_name">
+                                                    <button class="logo_user"
+                                                        style="background:none; border: none; padding: none; cursor: pointer;"
+                                                        type="button">
+                                                        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                                                            alt="" class="username_logo">
+                                                    </button>
+                                                    <a href="#dashboard" class="header_links">
+                                                        <%= userName %>
+                                                    </a>
+                                                </div>
+                                                <div class="user_log">
+                                                    <form action="LogoutServlet" method="post">
+                                                        <button type="submit" class="header_links"
+                                                            style="background: none; border: none; font-size: 16px;">Log
+                                                            out</button>
+                                                    </form>
+                                                </div>
+                                            </header>
+                                            <section class="first-wave">
+                                                <div class="welcome">
+                                                    <h1 class="greet">Dashboard</h1>
+                                                    <p class="about_us">Hello <%= userName%>
+                                                    </p>
+                                                </div>
+                                            </section>
+                                            <h1 style="color: white; margin-top: 50px; margin-left: 100px;">Your
+                                                Profile.
+                                            </h1>
+                                            <Section class="profile">
+                                                <div id="myChart" style="width:500px; max-width:600px; height: 350px;;background: #e6e6e6;
+    backdrop-filter: blur(20px);padding:20px;
+    margin:20px;border-radius:10px;
+    box-shadow:0 0 10px #ccc;
+    box-sizing: border-box;"></div>
+                                                <div class="cards streak-card"
+                                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                                    <img src="https://cdn-icons-png.flaticon.com/512/14261/14261136.png"
+                                                        alt="" style="width: 100px;">
+                                                    <h2 style="margin-top: 20px;box-sizing: border-box;">
+                                                        <%= request.getAttribute("streak") %>
+                                                    </h2>
+                                                </div>
+                                                <div class="cards calendar-card">
+                                                    <div class="calendar-header">
+                                                        <button id="prevMonth">❮</button>
+                                                        <h2 id="monthYear"></h2>
+                                                        <button id="nextMonth">❯</button>
+                                                    </div>
+
+                                                    <div class="weekdays">
+                                                        <div>Sun</div>
+                                                        <div>Mon</div>
+                                                        <div>Tue</div>
+                                                        <div>Wed</div>
+                                                        <div>Thu</div>
+                                                        <div>Fri</div>
+                                                        <div>Sat</div>
+                                                    </div>
+
+                                                    <div id="calendarDays"></div>
+                                                </div>
+                                            </Section>
+                                            <Section class="profile" style="justify-content: center;">
+                                                <div class="cards consistency-card">
+
+                                                    <div class="consistency-icon">
+                                                        🏅
+                                                    </div>
+
+                                                    <h2>${score}%</h2>
+
+                                                    <p>Consistency Score</p>
+
+                                                    <span>
+                                                        ${activeDays} active days in last 30 days
+                                                    </span>
+
+                                                </div>
+                                                <% List<String> courseNames =
+                                                    (List<String>)request.getAttribute("courseNames");
+
+                                                        List<Integer> courseProgress =
+                                                            (List<Integer>)request.getAttribute("courseProgress");
+
+                                                                if(courseNames != null){
+
+                                                                for(int i=0;i<courseNames.size();i++){ %>
+
+                                                                    <div class="course-card">
+
+                                                                        <div class="course-header">
+                                                                            <span>
+                                                                                <%= courseNames.get(i) %>
+                                                                            </span>
+
+                                                                            <span>
+                                                                                <%= courseProgress.get(i) %>%
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <div class="progress-bar">
+                                                                            <div class="progress-fill"
+                                                                                style="width:<%= courseProgress.get(i) %>%;">
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <% } } %>
+
+
+                                            </Section>
+                                            <script>
+                                                google.charts.load('current', { 'packages': ['corechart'] });
+                                                google.charts.setOnLoadCallback(drawChart);
+
+                                                function drawChart() {
+
+                                                    var data = new google.visualization.DataTable();
+
+                                                    data.addColumn('date', 'Date');
+                                                    data.addColumn('number', 'Visits');
+
+                                                    data.addRows([
+        <%
+        for (int i = 0; i < labels.size(); i++) {
+                                                        String[] d = labels.get(i).split("-");
+        %>
+                                                            [new Date(<%= d[0] %>, <%= Integer.parseInt(d[1]) - 1 %>, <%= d[2] %>), <%= values.get(i) %>],
+        <%
+        }
+        %>
+    ]);
+
+                                                    var options = {
+                                                        title: 'Daily User Activity',
+                                                        legend: 'none'
+                                                    };
+
+                                                    var chart = new google.visualization.LineChart(
+                                                        document.getElementById('myChart')
+                                                    );
+
+                                                    chart.draw(data, options);
+                                                }
+                                            </script>
+                                            <script>
+
+                                                const activityData = {
+
+<%
+                                                    Map < String, Integer> activityMap =
+                                                (Map < String, Integer >)request.getAttribute("activityMap");
+
+                                                if (activityMap != null) {
+
+    int count = 0;
+
+                                                    for (Map.Entry < String, Integer > entry :
+                                                        activityMap.entrySet()) {
+
+                                                        out.print(
+                                                            "'" + entry.getKey() +
+                                                            "':" + entry.getValue()
+                                                        );
+
+                                                        count++;
+
+                                                        if (count < activityMap.size())
+                                                            out.print(",");
+                                                    }
+                                                }
+%>
+
+};
+
+                                            </script>
+                                            <script>
+
+                                                let currentDate = new Date();
+
+                                                function renderCalendar() {
+
+                                                    const monthYear =
+                                                        document.getElementById("monthYear");
+
+                                                    const calendarDays =
+                                                        document.getElementById("calendarDays");
+
+                                                    calendarDays.innerHTML = "";
+
+                                                    const year =
+                                                        currentDate.getFullYear();
+
+                                                    const month =
+                                                        currentDate.getMonth();
+
+                                                    monthYear.textContent =
+                                                        currentDate.toLocaleString(
+                                                            'default',
+                                                            {
+                                                                month: 'long',
+                                                                year: 'numeric'
+                                                            }
+                                                        );
+
+                                                    const firstDay =
+                                                        new Date(year, month, 1).getDay();
+
+                                                    const daysInMonth =
+                                                        new Date(year, month + 1, 0).getDate();
+
+                                                    for (let i = 0; i < firstDay; i++) {
+
+                                                        calendarDays.innerHTML +=
+                                                            "<div></div>";
+                                                    }
+
+                                                    for (let day = 1;
+                                                        day <= daysInMonth;
+                                                        day++) {
+
+                                                        const date =
+                                                            `${year}-${String(month + 1).padStart(2, '0')
+                                                            }-${String(day).padStart(2, '0')
+                                                            }`;
+
+                                                        const visits =
+                                                            activityData[date] || 0;
+
+                                                        const activeClass =
+                                                            visits > 0
+                                                                ? "active-day"
+                                                                : "";
+
+                                                        calendarDays.innerHTML += `
+            <div class="day ${activeClass}">
+                <div class="day-number">
+                    ${day}
+                </div>
+
+                ${visits > 0
+                                                                ? `<div class="activity-count">
+                        ${visits}
+                   </div>`
+                                                                : ""
+                                                            }
+            </div>
+        `;
+                                                    }
+                                                }
+                                                console.log(document.getElementById("prevMonth"));
+                                                console.log(document.getElementById("nextMonth"));
+                                                document
+                                                    .getElementById("prevMonth")
+                                                    .onclick = () => {
+                                                        currentDate.setMonth(
+                                                            currentDate.getMonth() - 1
+                                                        );
+                                                        renderCalendar();
+                                                    };
+
+                                                document
+                                                    .getElementById("nextMonth")
+                                                    .onclick = () => {
+                                                        currentDate.setMonth(
+                                                            currentDate.getMonth() + 1
+                                                        );
+                                                        renderCalendar();
+                                                    };
+
+                                                renderCalendar();
+
+                                            </script>
+
+
+                                    </body>
+
+                                    </html>
