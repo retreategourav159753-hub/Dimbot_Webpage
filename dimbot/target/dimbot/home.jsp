@@ -69,7 +69,7 @@
     <h1 class="courses_01">Today's Trending Courses.</h1>   
     <Section class="second-wave">
 
-        <a href="https://www.w3schools.com/python/default.asp" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.w3schools.com%2Fpython%2Fdefault.asp&course=Python" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -86,7 +86,7 @@
             </div>
         </a>
 
-        <a href="https://www.w3schools.com/css/default.asp" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.w3schools.com%2Fcss%2Fdefault.asp&course=CSS" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -102,7 +102,7 @@
             </div>
         </a>
 
-        <a href="https://www.w3schools.com/html/default.asp" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.w3schools.com%2Fhtml%2Fdefault.asp&course=HTML" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -118,7 +118,7 @@
             </div>
         </a>
 
-        <a href="https://www.geeksforgeeks.org/javascript/javascript-tutorial/" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fjavascript%2Fjavascript-tutorial%2F&course=JavaScript" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -133,7 +133,7 @@
             </div>
         </a>
 
-        <a href="https://www.youtube.com/playlist?list=PLhvdldYcnZMmxgR8iP46Vr3fCZkbACiSo" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.youtube.com%2Fplaylist%3Flist%3DPLhvdldYcnZMmxgR8iP46Vr3fCZkbACiSo&course=JAVA" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -152,7 +152,7 @@
     <h1 class="android_text">For Android Development.</h1>
     <Section class="third-wave">
         
-        <a href="https://www.geeksforgeeks.org/android/a-complete-guide-to-learn-xml-for-android-app-development/" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fandroid%2Fa-complete-guide-to-learn-xml-for-android-app-development%2F&course=XML" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -167,7 +167,7 @@
             </div>
         </a>
 
-        <a href="https://www.geeksforgeeks.org/java/learn-java-for-android-app-development-a-complete-guide/" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fjava%2Flearn-java-for-android-app-development-a-complete-guide%2F&course=JAVA" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -182,7 +182,7 @@
             </div>
         </a>
 
-        <a href="https://www.geeksforgeeks.org/kotlin/kotlin-android-tutorial/" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fkotlin%2Fkotlin-android-tutorial%2F&course=Kotlin" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -197,7 +197,7 @@
             </div>
         </a>
 
-        <a href="https://reactnative.dev/" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Freactnative.dev%2F&course=React Native" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -212,7 +212,7 @@
             </div>
         </a>
 
-        <a href="https://roadmap.sh/java" target="_blank">
+        <a href="TrackLinkServlet?url=https%3A%2F%2Froadmap.sh%2Fjava&course=App Devlopment" target="_blank">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
